@@ -16,12 +16,14 @@ export default function DashboardLayout({
   useEffect(() => {
     const getUser = async () => {
       const { data } = await supabase.auth.getUser();
+
       if (!data.user) {
         router.push("/login");
       } else {
-        setEmail(data.user.email);
+        setEmail(data.user.email ?? null); // ✅ FIX
       }
     };
+
     getUser();
   }, [router]);
 
@@ -65,7 +67,10 @@ export default function DashboardLayout({
       <div className="flex-1 flex flex-col">
         {/* Header */}
         <header className="bg-white border-b px-6 py-4 flex justify-between items-center">
-          <span className="text-sm text-gray-600">{email}</span>
+          <span className="text-sm text-gray-600">
+            {email ?? "User"}
+          </span>
+
           <button
             onClick={logout}
             className="border px-3 py-1 rounded hover:bg-gray-100"
