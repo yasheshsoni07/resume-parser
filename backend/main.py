@@ -79,3 +79,6 @@ async def screen_candidate(
         "decision": result["decision"],
         "reason": result["reason"],
     }
+@app.get("/")
+def home():
+    return {"message": "Resume Parser Backend is Running 🚀"}
