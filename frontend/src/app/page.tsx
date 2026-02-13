@@ -1,14 +1,15 @@
-import Link from "next/link";
-
 export default function Home() {
   return (
-    <main className="flex min-h-screen items-center justify-center">
-      <Link
-        href="/dashboard"
-        className="text-xl underline"
-      >
-        Go to Resume Screening
-      </Link>
+    <main style={{
+      display: "flex",
+      height: "100vh",
+      justifyContent: "center",
+      alignItems: "center",
+      fontSize: "24px",
+      fontWeight: "bold"
+    }}>
+      Resume Parser Frontend Working 🚀
     </main>
   );
 }
+
